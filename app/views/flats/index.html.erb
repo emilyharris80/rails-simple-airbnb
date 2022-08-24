@@ -1,0 +1,24 @@
+<div class="navbar">
+<h5>Simply Airbnb</h5>
+<a href="/flats/new" class="btn btn-primary">Add a flat</a>
+</div>
+
+<h1>All our flats (<%= @flats.length %>)</h1>
+
+<div class="container">
+  <%  @flats.each do |flat| %>
+  <div class="flat_card">
+    <div class="name_info">
+      <h4 class="name"><%= flat.name %></h4>
+      <p class="address"><%= flat.address %></p>
+    </div>
+    <div class="info">
+      <p class="price">£<%=flat.price_per_night %></p>
+      <p class="guests"><%= flat.number_of_guests %> 👥</p>
+    </div>
+    <div class="more_info">
+    <%= link_to "more info", flat_path(flat) %>
+    </div>
+  </div>
+  <% end %>
+</div>
